@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Gallery </title>
+
+<style>
+body{
+  margin:0;
+  background:#0a0a0a;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,Arial;
+}
+header{
+  background:#000;
+  padding:12px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+header h1{
+  color:#ff2d55;
+  margin:0 0 8px 0;
+  font-size:20px;
+}
+
+/* TAGS */
+.tags{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+}
+.tag{
+  background:#151515;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:13px;
+  white-space:nowrap;
+  cursor:pointer;
+}
+.tag.active{
+  background:#ff2d55;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  padding:8px;
+}
+.card{
+  background:#151515;
+  border-radius:6px;
+  overflow:hidden;
+  text-decoration:none;
+  color:#fff;
+}
+.card img{
+  width:100%;
+  display:block;
+}
+.card div{
+  padding:6px;
+  font-size:12px;
+}
+
+/* FOOTER */
+footer{
+  font-size:11px;
+  text-align:center;
+  padding:15px;
+  opacity:.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1> Videos</h1>
+
+  <!-- TAGS -->
+  <div class="tags">
+    <span class="tag active" onclick="filterVideos('all', this)">  Trending</span>
+    <span class="tag" onclick="filterVideos('indian', this)">  Indian</span>
+    <span class="tag" onclick="filterVideos('desi', this)">  Desi</span>
+    <span class="tag" onclick="filterVideos('new', this)">  New</span>
+    <span class="tag" onclick="filterVideos('shorts', this)">  Shorts</span>
+  </div>
+</header>
+
+<div class="grid" id="gallery"></div>
+
+<footer>
+18+ Only • Redirects to third-party video websites
+</footer>
+
+<script>
+const videos = [
+  {
+    img: "https://i.ibb.co/7NgCRGTD/20251216-140031.jpg",
+    title: "Perv Mom – Helpful MYLF with big tits gets on her knees and helps her horny stepson with his sex problems",
+    link: "https://hi.xhamster44.desi/videos/perv-mom-helpful-busty-mylf-gets-on-her-knees-and-helps-her-horny-step-son-with-his-sex-problems-xhHp5kr",
+    category: "trending"
+  },
+  {
+    img: "IMAGE_URL_2",
+    title: "Indian Hot Video",
+    link: "REDIRECT_LINK_2",
+    category: "indian"
+  },
+  {
+    img: "IMAGE_URL_3",
+    title: "Desi Short Clip",
+    link: "REDIRECT_LINK_3",
+    category: "desi"
+  },
+  {
+    img: "IMAGE_URL_4",
+    title: "New Viral Short",
+    link: "REDIRECT_LINK_4",
+    category: "shorts"
+  }
+  // ADD UNLIMITED ITEMS
+];
+
+const gallery = document.getElementById("gallery");
+
+function render(list){
+  gallery.innerHTML = "";
+  list.forEach(v => {
+    gallery.innerHTML += `
+      <a class="card" href="${v.link}" target="_blank">
+        <img src="${v.img}">
+        <div>${v.title}</div>
+      </a>
+    `;
+  });
+}
+
+render(videos);
+
+function filterVideos(cat, el){
+  document.querySelectorAll(".tag").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
+
+  if(cat === "all"){
+    render(videos);
+  } else {
+    render(videos.filter(v => v.category === cat));
+  }
+}
+</script>
+
+</body>
+</html>
