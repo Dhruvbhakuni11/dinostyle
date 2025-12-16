@@ -94,14 +94,14 @@ footer{
 <div class="grid" id="gallery"></div>
 
 <footer>
-18+ Only • Redirects to third-party video websites
+18+ Only â€¢ Redirects to third-party video websites
 </footer>
 
 <script>
 const videos = [
   {
     img: "https://i.ibb.co/7NgCRGTD/20251216-140031.jpg",
-    title: "Perv Mom – Helpful MYLF with big tits gets on her knees and helps her horny stepson with his sex problems",
+    title: "Perv Mom â€“ Helpful MYLF with big tits gets on her knees and helps her horny stepson with his sex problems",
     link: "https://hi.xhamster44.desi/videos/perv-mom-helpful-busty-mylf-gets-on-her-knees-and-helps-her-horny-step-son-with-his-sex-problems-xhHp5kr",
     category: "trending"
   },
@@ -156,3 +156,4 @@ function filterVideos(cat, el){
 
 </body>
 </html>
+
